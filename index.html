@@ -1,14 +1,132 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Ecommerce Web App</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tienda Online</title>
+	<style>
+    .container {
+		max-width: 600px;
+		margin: 0 auto;
+		padding: 20px;
+    }
+
+    h1 {
+		text-align: center;
+    }
+
+    #lista-productos {
+		margin-top: 20px;
+		list-style-type: none;
+    }
+
+    .producto {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+    }
+
+    .producto img {
+		width: 100px;
+		height: 100px;
+		margin-right: 10px;
+    }
+
+    .boton-agregar {
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		padding: 8px 16px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 14px;
+		margin-left: auto;
+		cursor: pointer;
+    }
+
+	#boton-finalizar {
+		background-color: #f44336;
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		text-align: center;
+		text-decoration: none;
+		display: block;
+		width: 100%;
+		font-size: 16px;
+		margin-top: 20px;
+		cursor: pointer;
+		border-radius: 5px;
+		transition: background-color 0.3s ease;
+	}
+
+	#boton-finalizar:hover {
+		background-color: #e53935;
+	}
+    #monto-total {
+		font-weight: bold;
+		font-size: 18px;
+		margin-top: 10px;
+    }
+
+    #carrito {
+		margin-top: 20px;
+		border: 1px solid #ccc;
+		padding: 10px;
+    }
+
+    #carrito .item {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 5px;
+    }
+
+    #carrito .item .cantidad {
+		margin-right: 10px;
+    }
+
+    .carrito-icon {
+		position: fixed;
+		top: 20px;
+		right: 20px;
+		background-color: #f44336;
+		color: white;
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		cursor: pointer;
+    }
+
+    .carrito-icon span {
+		font-size: 18px;
+    }
+	</style>
 </head>
 <body>
-	<h1>Products</h1>
-	<div id="products"></div>
-	<h1>Shopping Cart</h1>
-	<div id="cart"></div>
-	<script src="./js/app.js"></script>
+	<div class="container">
+    <h1>Tienda Online</h1>
+
+    <ul id="lista-productos"></ul>
+
+    <button id="boton-finalizar" style="display: none;">Finalizar Compra</button>
+
+    <div id="carrito" style="display: none;">
+		<h2>Carrito de Compra</h2>
+		<div id="carrito-items"></div>
+		<p>Monto total a pagar: $<span id="monto-total"></span></p>
+		<button id="boton-finalizar-compra">Finalizar Compra</button>
+    </div>
+
+    <div class="carrito-icon">
+		<span id="carrito-cantidad">0</span>
+    </div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="js/app.js"></script>
 </body>
 </html>
